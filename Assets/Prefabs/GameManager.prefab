@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1199624073187114}
+  m_IsPrefabParent: 1
+--- !u!1 &1199624073187114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4326541688087368}
+  - component: {fileID: 114284992746741976}
+  - component: {fileID: 114192898414882278}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4326541688087368
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1199624073187114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114192898414882278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1199624073187114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d413a62c2ecb88e439fc7772bcde7d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  columns: 8
+  rows: 8
+  wallCount:
+    minimum: 5
+    maximum: 9
+  foodCount:
+    minimum: 1
+    maximum: 5
+  exit: {fileID: 1174550341923570, guid: c11cb676f80c7144d99be177412d3d95, type: 2}
+  floorTiles:
+  - {fileID: 1873990440784438, guid: 202a0dd6a318cfd45a89141fe806239f, type: 2}
+  - {fileID: 1023289141340862, guid: c79906b7edbbebd4eb3ab6411090c266, type: 2}
+  - {fileID: 1840917870358092, guid: 011b6440ec56a0a4d8ee710db65c756b, type: 2}
+  - {fileID: 1639770427535180, guid: c5ce7178c2f77d44fb829ddc4cd8d8c8, type: 2}
+  - {fileID: 1522849932044366, guid: e008220a7fa9eb244b5ec4f683f949ff, type: 2}
+  - {fileID: 1415555719439506, guid: 476f045647ecb534c848620a8ae0f0fd, type: 2}
+  - {fileID: 1278597848971120, guid: 16298d0ee5686a247877ea35abb4d564, type: 2}
+  - {fileID: 1490672209097452, guid: 385b06c74f2d4414d8d4c1f4c87d8b14, type: 2}
+  wallTiles:
+  - {fileID: 1194608800163922, guid: 9e426daf6bc44d345bc2f440a40ce7c4, type: 2}
+  - {fileID: 1048530834152826, guid: 713fef569f4bd1247ba0fbcf6af2caa7, type: 2}
+  - {fileID: 1425555309875344, guid: 8c20c7bf3aaad3540846c8370b57e10d, type: 2}
+  - {fileID: 1111979479226714, guid: e42e451ac4665a5459a07970c1503a77, type: 2}
+  - {fileID: 1819527205619162, guid: 4209dcacc1d542c47bfa5e5b1831bb59, type: 2}
+  - {fileID: 1899218919423150, guid: d307023f1ac91e24696d393b6f22c366, type: 2}
+  - {fileID: 1228558039222558, guid: 3e93f89c73ffcea4b9521d3d05d8cee5, type: 2}
+  - {fileID: 1160459638451126, guid: 17e6e766530f47b49bd72fd567aca897, type: 2}
+  foodTiles:
+  - {fileID: 1900729436418536, guid: c6498e59e487d234bae029aa008e1124, type: 2}
+  - {fileID: 1417212798966948, guid: c099f2b1eaf45c641bcd4e68baf2dab2, type: 2}
+  enemyTiles:
+  - {fileID: 1450815089883846, guid: 34bfcd9e5eb8bf445be19ec59c666260, type: 2}
+  - {fileID: 1003323653472944, guid: 20b87e0bea4b0c44684388402d135af6, type: 2}
+  outerWallTiles:
+  - {fileID: 1232867303499222, guid: f4ffe874b2491034998c66fca43d5610, type: 2}
+  - {fileID: 1240752907559680, guid: d193b8eca8e6cdc45a3cfa77d3c5b2f1, type: 2}
+  - {fileID: 1547747431060664, guid: 2b3fccdceaca6c748ac12da5cba473cf, type: 2}
+--- !u!114 &114284992746741976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1199624073187114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d744e2c46cba2484b94c25c0b4c004b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardScript: {fileID: 0}
