@@ -30,15 +30,17 @@ public abstract class MovingObject : MonoBehaviour {
 			StartCoroutine(SmoothMovement(end));
 			return true;
 		}
+		return false;
 	}
 	
 	protected IEnumerator SmoothMovement (Vector3 end){
 		float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
 		
 		while (sqrRemainingDistance > float.Epsilon) {
-			Vector3 newPosition = Vector3.MoveTowards (rb2D.position, inverseMoveTime * Time.deltaTime);
+			Vector3 newPosition = Vector3.MoveTowards (rb2D.position, end, inverseMoveTime * Time.deltaTime);
 			rb2D.MovePosition(newPosition);
 			sqrRemainingDistance = (transform.position - end).sqrMagnitude;
+			yield return null;
 		}
 	}
 	
@@ -46,7 +48,7 @@ public abstract class MovingObject : MonoBehaviour {
 	protected virtual void AttemptMove <T> (int xDir, int yDir)
 		where T: Component {
 			RaycastHit2D hit;
-			bool canMOve = Move (xDir, yDir, out hit);
+			bool canMove = Move (xDir, yDir, out hit);
 			
 			if (hit.transform == null){
 				return;
@@ -54,7 +56,7 @@ public abstract class MovingObject : MonoBehaviour {
 			
 			T hitComponent = hit.transform.GetComponent<T>();
 			
-			if (!canmove && hitComponent != null) {
+			if (!canMove && hitComponent != null) {
 				OnCanMove(hitComponent);
 			}
 		}
