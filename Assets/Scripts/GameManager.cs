@@ -7,9 +7,8 @@ public class GameManager : MonoBehaviour {
 	/* GameManager wird zum Singleton gemacht
 	Da er nur 1 mal benötigt wird */
 	public static GameManager instance = null;
-	
 	public BoardManager boardScript;
-	
+	public int playerFoodPoints = 100;
 	private int level = 3;
 	
 	
