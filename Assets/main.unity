@@ -130,6 +130,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114857487116459452, guid: 86e497c7e768d194991d81694cc76432,
+        type: 2}
+      propertyPath: blockingLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86e497c7e768d194991d81694cc76432, type: 2}
   m_IsPrefabParent: 0

@@ -57,11 +57,11 @@ public abstract class MovingObject : MonoBehaviour {
 			T hitComponent = hit.transform.GetComponent<T>();
 			
 			if (!canMove && hitComponent != null) {
-				OnCanMove(hitComponent);
+				OnCantMove(hitComponent);
 			}
 		}
 	// T ist eine generic Component die genutzt wird wenn Spieler oder Gegner blocken
-	protected abstract void OnCanMove <T> (T component) 
+	protected abstract void OnCantMove <T> (T component) 
 		where T: Component;
 	
 }
