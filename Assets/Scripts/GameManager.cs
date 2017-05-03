@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //Nach dem Hinzufügen der UI Elemente ist das nötig
 using UnityEngine.UI; 
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 	
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour {
 	private int level = 1;
 	private List<Enemy> enemies;
 	private bool enemiesMoving;
-	private bool doingSetup = true;
+	private bool doingSetup;
 	
 	// Use this for initialization
 	void Awake () {
@@ -39,11 +40,25 @@ public class GameManager : MonoBehaviour {
 		boardScript = GetComponent<BoardManager>();
 		InitGame();
 	}
-	//private
+	/*Diese Methode gibts nicht mehr in neueren Unity Versionen
 	void OnLevelWasLoaded(int index) {
 		level++;
 		InitGame();
 	}
+	*/
+	
+	void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode) { 
+		level++; 
+		InitGame(); 
+	}
+	
+	void OnEnable() { 
+		SceneManager.sceneLoaded += OnLevelFinishedLoading; 
+	}  
+	
+	void OnDisable() { 
+		SceneManager.sceneLoaded -= OnLevelFinishedLoading; 
+	} 
 	
 	void InitGame() {
 		doingSetup = true;
