@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 //Nach dem Hinzufügen der UI Elemente ist das nötig
 using UnityEngine.UI; 
 using UnityEngine.SceneManagement;
@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour {
 	private Text levelText;
 	private GameObject levelImage;
 	private BoardManager boardScript;
-	private int level = 1;
+	//Durch Problem 1 durch 0 ersetzen
+	private int level = 0;
 	private List<Enemy> enemies;
 	private bool enemiesMoving;
 	private bool doingSetup;
@@ -38,14 +39,13 @@ public class GameManager : MonoBehaviour {
 		DontDestroyOnLoad(gameObject);
 		enemies = new List<Enemy>();
 		boardScript = GetComponent<BoardManager>();
-		InitGame();
+		//InitGame();
 	}
 	/*Diese Methode gibts nicht mehr in neueren Unity Versionen
 	void OnLevelWasLoaded(int index) {
 		level++;
 		InitGame();
-	}
-	*/
+	}*/
 	
 	void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode) { 
 		level++; 
@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour {
 	void OnDisable() { 
 		SceneManager.sceneLoaded -= OnLevelFinishedLoading; 
 	} 
+	
 	
 	void InitGame() {
 		doingSetup = true;
@@ -85,17 +86,15 @@ public class GameManager : MonoBehaviour {
 		StartCoroutine(MoveEnemies());
 	}
 	
+	//Für den GameManager um die Bewegungsreihenfolge zu bestimmen
+	public void AddEnemyToList(Enemy script) {
+		enemies.Add(script);
+	}
 	
 	public void GameOver() {
 		levelText.text = "After " + level + " days, you starved.";
 		levelImage.SetActive(true);
 		enabled = false;
-	}
-	
-
-	//Für den GameManager um die Bewegungsreihenfolge zu bestimmen
-	public void AddEnemyToList(Enemy script) {
-		enemies.Add(script);
 	}
 	
 	IEnumerator MoveEnemies() {
